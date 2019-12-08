@@ -1,0 +1,26 @@
+<template>
+  <style>
+    section {
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+  <section>
+    我是头部
+  </section>
+</template>
+  
+<script>
+  customElements.define('my-header', 
+    class extends HTMLElement {
+      constructor(){
+        super();
+        var root = this.attachShadow({mode: 'open'});
+        var tmpl = HTMLImports.importForElement(document.currentScript).querySelector('template').content;
+        root.appendChild(document.importNode(tmpl, true));
+      } 
+    }
+  );
+</script>
+
+

@@ -1,0 +1,25 @@
+<template>
+  <link rel="stylesheet" href="./Page/index.css">
+  <div class="container">
+    <my-header></my-header>
+    <my-main></my-main>
+    <my-footer></my-footer>
+  </div>
+</template>
+      
+<script>
+customElements.define('my-index', 
+  class extends HTMLElement {
+    constructor(){
+      super();
+      var root = this.attachShadow({mode: 'open'});
+      var tmpl = HTMLImports.importForElement(document.currentScript).querySelector('template').content;
+      root.appendChild(document.importNode(tmpl,true));
+    } 
+  }
+);
+</script>
+
+
+
+

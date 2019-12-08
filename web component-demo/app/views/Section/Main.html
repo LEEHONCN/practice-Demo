@@ -1,0 +1,31 @@
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+<template>
+  <style>
+    section{
+      height: 600px;
+      background-color: blue;
+    } 
+
+    model-viewer{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <section>
+    <model-viewer src="../assets/shishkebab.glb"></model-viewer>
+  </section>
+</template>
+  
+<script>
+  customElements.define('my-main', 
+    class extends HTMLElement {
+      constructor(){
+        super();
+        var root = this.attachShadow({mode: 'open'});
+        var tmpl = HTMLImports.importForElement(document.currentScript).querySelector('template').content;
+        root.appendChild(document.importNode(tmpl, true));
+      } 
+    }
+  );
+</script>
+
